@@ -1,6 +1,6 @@
 {
   "name": "@rmf1723/strobe",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An implementation of Mark Hamburg's STROBE protocol framework",
   "type": "module",
   "main": "dist/strobe.js",
@@ -32,9 +32,7 @@
   },
   "homepage": "https://github.com/rmartinho/strobe-js#readme",
   "devDependencies": {
-    "@types/jest": "^29.5.11",
     "@types/node": "^20.11.0",
-    "ts-jest": "^29.1.1",
     "typescript": "^5.3.3",
     "vitest": "^1.2.0"
   },
