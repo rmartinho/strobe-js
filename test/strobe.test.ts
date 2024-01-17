@@ -1,4 +1,6 @@
-/// <reference path="jest.d.ts" />
+/// <reference path="vitest.d.ts" />
+
+import { test, expect } from 'vitest'
 
 import { AuthenticationError, Strobe } from '../src/strobe'
 import { utf8 } from '../src/utils'
