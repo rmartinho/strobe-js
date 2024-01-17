@@ -1,6 +1,6 @@
 import { keccakP } from '@noble/hashes/sha3'
 import { u32 as u32View } from '@noble/hashes/utils'
-import { u8Merge, u8View } from './utils'
+import { u8Merge, u8View } from './utils.js'
 
 type DuplexOptions = { before?: boolean; after?: boolean; force?: boolean }
 
