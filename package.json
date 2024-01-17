@@ -1,6 +1,6 @@
 {
-  "name": "strobe-js",
-  "version": "0.1.0",
+  "name": "@rmf1723/strobe",
+  "version": "0.1.1",
   "description": "An implementation of Mark Hamburg's STROBE protocol framework",
   "type": "module",
   "main": "dist/strobe.js",
