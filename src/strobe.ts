@@ -1,5 +1,5 @@
 import { keccakP } from '@noble/hashes/sha3'
-import { u32 } from '@noble/hashes/utils'
+import { u32 as u32View } from '@noble/hashes/utils'
 import { u8Merge, u8View } from './utils'
 
 type DuplexOptions = { before?: boolean; after?: boolean; force?: boolean }
@@ -93,7 +93,7 @@ export class Strobe {
     this.#runFCore()
   }
   #runFCore() {
-    keccakP(u32(this.#state))
+    keccakP(u32View(this.#state))
     this.#pos = this.#pos_begin = 0
   }
 
