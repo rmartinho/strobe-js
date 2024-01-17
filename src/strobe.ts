@@ -1,5 +1,6 @@
 import { keccakP } from '@noble/hashes/sha3'
 import { u32 } from '@noble/hashes/utils'
+import { u8Merge, u8View } from './utils'
 
 type DuplexOptions = { before?: boolean; after?: boolean; force?: boolean }
 
@@ -40,6 +41,7 @@ export class Strobe {
   #flags = Flags.None
   #rate: number
 
+  constructor(proto: string)
   constructor(proto: string, sec: 128 | 256)
   constructor(source: Strobe)
   constructor(protoOrSource: string | Strobe, sec: 128 | 256 = 128) {
@@ -400,7 +402,7 @@ export class Strobe {
     console.assert(!more, 'used MAC operation with `more`')
 
     const copy = u8Copy(data)
-  
+
     this.#operateMutate(Flags.I | Flags.C | Flags.T | meta, copy, { more })
     let failures = copy.reduce((a, b) => a | b, 0)
     if (failures != 0) throw new AuthenticationError()
@@ -493,24 +495,4 @@ function u8Copy(data: AnyData): Uint8Array {
   } else {
     return new Uint8Array(view)
   }
-}
-
-function u8View(length: number): Uint8Array
-function u8View(data: number[]): Uint8Array
-function u8View(data: string): Uint8Array
-function u8View(data: ArrayBufferView): Uint8Array
-function u8View(data: AnyData): Uint8Array
-
-function u8View(data: AnyData): Uint8Array {
-  if (typeof data === 'number') return new Uint8Array(data)
-  else if (Array.isArray(data)) return new Uint8Array(data)
-  else if (typeof data === 'string') return new TextEncoder().encode(data)
-  else return new Uint8Array(data.buffer, data.byteOffset, data.byteLength)
-}
-
-function u8Merge(a: Uint8Array, b: Uint8Array): Uint8Array {
-  const merged = new Uint8Array(a.length + b.length)
-  merged.set(a)
-  merged.set(b, a.length)
-  return merged
 }

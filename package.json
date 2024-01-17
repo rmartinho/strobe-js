@@ -1,5 +1,5 @@
 {
-  "name": "strobe-js",
+  "name": "@rmf/strobe",
   "version": "0.1.0",
   "description": "An implementation of Mark Hamburg's STROBE protocol framework",
   "type": "module",

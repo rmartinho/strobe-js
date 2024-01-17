@@ -1,6 +1,7 @@
 /// <reference path="jest.d.ts" />
 
 import { AuthenticationError, Strobe } from '../src/strobe'
+import { utf8 } from '../src/utils'
 
 test('initialize STROBE-128', () => {
   const s = new Strobe('test-init', 128)
@@ -183,7 +184,3 @@ test('mac correctness and soundness', () => {
 
   expect(() => rx_copy.recvMAC(bad_mac)).toThrow(AuthenticationError)
 })
-
-function utf8(s: string): Uint8Array {
-  return new TextEncoder().encode(s)
-}
